@@ -1,0 +1,9 @@
+services:
+  vintagestory_server:
+    image: tbh:latest
+    environment:
+      - DATA_PATH=${DATA_PATH:-./data}
+    volumes:
+      - ${DATA_PATH}:/var/vintagestory/data
+    ports:
+      - "42420:42420"
