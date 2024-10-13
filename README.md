@@ -1,4 +1,4 @@
-# Vintage Story Docker Server
+# Vintage Story Docker Server ![Workflow Status](https://github.com/PoDiax/Vintage-Story-Docker-Server/actions/workflows/docker-publish.yml/badge.svg)
 
 This repository contains a Docker setup for running a Vintage Story game server in an easy and flexible way.
 
@@ -10,7 +10,7 @@ To set up your Vintage Story server, you have two options: using Docker Compose 
 
 1. Clone the repository to your local machine.
 2. Ensure Docker and Docker Compose are installed on your system.
-3. Set the environment variable `DATA_PATH` to define where the server should save generated data. You can define this in a `.env` file or directly when running the container.
+3. Set the environment variable `DATA_PATH` to define where the server should save generated data (Configs etc.). You can define this in a `.env` file or directly when running the container.
    
    Example `.env` file:
    ```plaintext
@@ -28,7 +28,7 @@ To set up your Vintage Story server, you have two options: using Docker Compose 
    ```yaml
    services:
      vintagestory_server:
-       image: tbh:latest
+       image: ghcr.io/podiax/vintage-story-docker-server:main
        environment:
          - DATA_PATH=${DATA_PATH:-./data}
        volumes:
@@ -46,13 +46,13 @@ If you prefer to build the image manually, follow these steps:
 3. Build the Docker image:
 
    ```bash
-   docker build -t tbh .
+   docker build -t vintage-story-docker-server .
    ```
 
 4. Run the server using the `docker run` command, setting the `DATA_PATH` environment variable:
 
    ```bash
-   docker run -d -e DATA_PATH=/path/to/your/data -v /path/to/your/data:/var/vintagestory/data -p 42420:42420 tbh
+   docker run -d -e DATA_PATH=/path/to/your/data -v /path/to/your/data:/var/vintagestory/data -p 42420:42420 ghcr.io/podiax/vintage-story-docker-server:main
    ```
 
 ## Features
