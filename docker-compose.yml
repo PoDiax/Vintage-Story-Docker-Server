@@ -1,6 +1,6 @@
 services:
   vintagestory_server:
-    image: tbh:latest
+    image: ghcr.io/podiax/vintage-story-docker-server:main
     environment:
       - DATA_PATH=${DATA_PATH:-./data}
     volumes:
